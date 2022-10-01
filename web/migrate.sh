@@ -1,6 +1,6 @@
 #!/bin/bash
-SUPERUSER_EMAIL=${DJANGO_SUPERUSER_EMAIL:-"heiinhei911@gmail.com"}
-SUPERUSER_USERNAME=${DJANGO_SUPERUSER_EMAIL:-"heiinhei"}
+SUPERUSER_EMAIL=${DJANGO_SUPERUSER_EMAIL}
+SUPERUSER_USERNAME=${DJANGO_SUPERUSER_USER}
 
 cd /app/
 /opt/venv/bin/python manage.py migrate --noinput

@@ -27,8 +27,10 @@ SECRET_KEY = os.environ["SECRET_KEY"]
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ["DEBUG"]
 
-ALLOWED_HOSTS = ["*"]
-if DEBUG:
+print(DEBUG)
+
+ALLOWED_HOSTS = ["gamestoreapi.azurewebsites.net"]
+if DEBUG == True:
     ALLOWED_HOSTS = ["localhost"]
 
 SECURE_HSTS_SECONDS = 31536000
@@ -86,7 +88,7 @@ CORS_URLS_REGEX = r"^/api/.*"
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:8000"
 ]
-if DEBUG:
+if DEBUG == True:
     CORS_ALLOWED_ORIGINS = [
         "http://localhost:8000"
     ]
@@ -204,7 +206,7 @@ SIMPLE_JWT = {
     "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
 }
 
-if DEBUG:
+if DEBUG == True:
     SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=1),
     "REFRESH_TOKEN_LIFETIME": timedelta(minutes=5),
