@@ -29,14 +29,14 @@ scheme_view = get_schema_view(
 )
 
 urlpatterns = [
+    # index
+    path("", scheme_view.with_ui("swagger", cache_timeout=0)), # swagger ui
+
     # admin panel
     path('admin/', admin.site.urls),
 
-    # api
-    path("api/", include([
-        path("games/", include("games.urls")), # games
-        path("docs/", scheme_view.with_ui("swagger", cache_timeout=0)) # swagger ui
-    ])),
+    # api/games
+    path("api/games/", include("games.urls")),
 
     # token/authentication
     path("token/", TokenObtainPairView.as_view(), name="token_obtain_pair"),

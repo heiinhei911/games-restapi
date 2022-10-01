@@ -25,21 +25,24 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ["SECRET_KEY"]
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ["DEBUG"]
+DEBUG_ENV = os.environ["DEBUG"]
+if DEBUG_ENV == "False":
+    DEBUG = False
+else:
+    DEBUG = True
 
 ALLOWED_HOSTS = ["gamestoreapi.azurewebsites.net"]
-if DEBUG == True:
+if DEBUG:
     ALLOWED_HOSTS = ["localhost"]
 
 SECURE_HSTS_SECONDS = 31536000
-SECURE_SSL_REDIRECT = True
+SECURE_SSL_REDIRECT = False # this will be configured in Azure
 SESSION_COOKIE_SECURE = True
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 SECURE_HSTS_PRELOAD = True
 CSRF_COOKIE_SECURE = True
 if DEBUG:
     SECURE_HSTS_SECONDS = 3600
-    SECURE_SSL_REDIRECT = False
     SESSION_COOKIE_SECURE = False
     SECURE_HSTS_INCLUDE_SUBDOMAINS = False
     SECURE_HSTS_PRELOAD = False
@@ -81,12 +84,12 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'game_store.urls'
-CORS_URLS_REGEX = r"^/api/.*"
-
+CORS_URLS_REGEX = r"^/api/.*$"
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:8000"
+    "https://gamestoreapi.azurewebsites.net",
+    "https://www.gamestoreapi.azurewebsites.net"
 ]
-if DEBUG == True:
+if DEBUG:
     CORS_ALLOWED_ORIGINS = [
         "http://localhost:8000"
     ]
@@ -204,7 +207,7 @@ SIMPLE_JWT = {
     "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
 }
 
-if DEBUG == True:
+if DEBUG:
     SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=1),
     "REFRESH_TOKEN_LIFETIME": timedelta(minutes=5),
