@@ -52,12 +52,12 @@ if DEBUG:
 
 INSTALLED_APPS = [
     # third party frameworks
+    'whitenoise.runserver_nostatic',
     'rest_framework',
     'rest_framework_simplejwt',
     'rest_framework_simplejwt.token_blacklist',
     'corsheaders',
     'drf_yasg',
-    'whitenoise.runserver_nostatic',
 
     # main
     'django.contrib.admin',
@@ -89,10 +89,15 @@ CORS_ALLOWED_ORIGINS = [
     "https://gamestoreapi.azurewebsites.net",
     "https://www.gamestoreapi.azurewebsites.net"
 ]
+CSRF_TRUSTED_ORIGINS = [
+    "https://gamestoreapi.azurewebsites.net",
+    "https://www.gamestoreapi.azurewebsites.net"
+]
 if DEBUG:
     CORS_ALLOWED_ORIGINS = [
         "http://localhost:8000"
     ]
+    CSRF_TRUSTED_ORIGINS = ["http://localhost:8000"]
 
 TEMPLATES = [
     {
@@ -183,6 +188,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
