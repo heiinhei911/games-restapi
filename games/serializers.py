@@ -5,7 +5,7 @@ from .validators import validate_title, unique_game_title
 
 class UserSerializer(serializers.Serializer):
     username = serializers.CharField(read_only=True)
-    id = serializers.IntegerField(read_only=True)
+    user_id = serializers.IntegerField(source="id", read_only=True)
 
 class GameSerializer(serializers.ModelSerializer):
     creator = UserSerializer(source="user", read_only=True)
