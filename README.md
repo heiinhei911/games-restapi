@@ -44,6 +44,10 @@ Finally, one can sign out of the current account by navigating to `/logout/`.
 **IMPORTANT**\
 **A user has to have staff status + assigned to be part of the "admin" group to be able to create new game and view/update/delete the details of individual game. This is a custom permission that has been implemented. An account with staff status alone is not sufficient to perform the above operations.**
 
+## Search
+
+This API features a search functionality in `/search/`. Query parameters can be added after the URI by adding the parameter `?q={query}` such as `/search/q={rainbow}` and `/search/q={action}`. The query searches all the fields that are assoicated with a game (e.g., title, description, release_date) and returns all matching results.
+
 ## Application Architecture
 
 ![Application Architecture](./assets/architecture.jpg)

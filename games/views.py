@@ -34,7 +34,7 @@ class UserGameListAPIView(GetAllQuerySetMixin, UserQuerySetMixin, generics.ListA
 
 class GameSearchAPIView(GetAllQuerySetMixin, generics.ListAPIView):
     """
-    Search all public (+private, if authenticated) games. The query searches all the fields that are assoicated with a game (e.g., title, description, release_date)
+    Search all public (+private, if authenticated) games by querying '/serach/?q={query}'. The query searches all the fields that are assoicated with a game (e.g., title, description, release_date)
     """
     def get_queryset(self, *args, **kwargs):
         qs = super().get_queryset(*args, **kwargs)
