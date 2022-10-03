@@ -14,10 +14,18 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from .settings import DEBUG
 from django.urls import path, include
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView, TokenVerifyView, TokenBlacklistView
 from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
+from drf_yasg.generators import OpenAPISchemaGenerator
+
+class HttpsSchemaGenerator(OpenAPISchemaGenerator):
+    def get_schema(self, request=None, public=False):
+        schema = super().get_schema(request, public)
+        schema.schemes = ["http"] if DEBUG else ["https"]
+        return schema
 
 scheme_view = get_schema_view(
     openapi.Info(
@@ -26,6 +34,7 @@ scheme_view = get_schema_view(
         description="API Documentation of the Games API"
     ),
     public=True,
+    generator_class=HttpsSchemaGenerator
 )
 
 urlpatterns = [
