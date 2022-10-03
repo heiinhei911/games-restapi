@@ -41,7 +41,7 @@ Finally, one can sign out of the current account by navigating to `/logout/`.
 
 **Unauthenticated** users can view all public game data ('public' = 'False') in `/api/games/`. **Authenticated** users however can view all data that are public **and private** ('public' = 'true' and 'false').
 
-**IMPORTANT**
+**IMPORTANT**\
 **A user has to have staff status + assigned to be part of the "admin" group to be able to create new game and view/update/delete the details of individual game. This is a custom permission that has been implemented. An account with staff status alone is not sufficient to perform the above operations.**
 
 ## Application Architecture
