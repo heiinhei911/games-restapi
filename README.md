@@ -45,7 +45,7 @@ Finally, one can sign out of the current account by navigating to `/logout/`.
 
 ## Application Architecture
 
-![Application Architecture](./client/assets/architecture.jpg)
+![Application Architecture](./assets/architecture.jpg)
 
 ## API Endpoints
 
