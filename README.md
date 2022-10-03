@@ -46,7 +46,7 @@ Finally, one can sign out of the current account by navigating to `/logout/`.
 
 ## Search
 
-This API features a search functionality in `/search/`. Query parameters can be added after the URI by including `?q={query}` such as `/search/q={rainbow}` and `/search/q={action}`. The query searches all the fields that are assoicated with a game (e.g., title, description, release_date) and returns all matching results.
+This API features a search functionality in `/search/`. Query parameters can be added after the URI by including `?q={query}` such as `/search/?q={rainbow}` and `/search/?q={action}`. The query searches all the fields that are assoicated with a game (e.g., title, description, release_date) and returns all matching results.
 
 ## Application Architecture
 
