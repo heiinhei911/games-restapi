@@ -1,6 +1,6 @@
-# Games REST API
+# Video Games REST API
 
-A CRUD REST API containing a list of games and their details with authentication built in.
+A CRUD REST API containing a collection of video games with authentication built in.
 
 Site link: [https://gamestoreapi.azurewebsites.net](https://gamestoreapi.azurewebsites.net)
 
@@ -19,8 +19,8 @@ The purpose of this project is to learn and practice concepts related to:
 
 I used the following:
 
-- Django's MTV (Model-Template-View) Architecture
 - Django's Object Relational Mapping (ORM)
+- Django REST's MSV (Model-Serializer-View) Architecture
 - Django REST framework features (serializers and custom mixins, permissions, validators)
 - Django REST JWT
 - Restful API guidelines
@@ -62,7 +62,7 @@ Finally, one can sign out of the current account by navigating to `/logout/`.
 
 ## Tech Used
 
-Python, Django, Django REST framework, Django REST JWT, and Swagger UI.
+Python, Django, Django REST framework, Django REST JWT, Whitenoise, Gunicorn, Psycopg2-binary, Django CORS Headers, and Swagger UI (drf_yasg).
 
 Data stored in PostgreSQL
 
