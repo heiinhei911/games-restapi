@@ -31,7 +31,7 @@ if DEBUG_ENV == "False":
 else:
     DEBUG = True
 
-ALLOWED_HOSTS = ["gamestoreapi.azurewebsites.net"]
+ALLOWED_HOSTS = ["games-restapi.onrender.com"]
 if DEBUG:
     ALLOWED_HOSTS = ["localhost"]
 
