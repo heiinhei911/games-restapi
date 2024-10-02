@@ -1,4 +1,3 @@
-from email.policy import default
 from django.conf import settings
 from django.db import models
 from django.db.models import Q
@@ -14,8 +13,10 @@ class GameQuerySet(models.QuerySet):
         lookup = Q(title__icontains=query) | Q(description__icontains=query) | Q(genre__icontains=query) | Q(release_date__icontains=query) | Q(developer__icontains=query) | Q(publisher__icontains=query) | Q(rating_for__icontains=query) | Q(price__icontains=query) | Q(public__icontains=query)
         qs = self.filter(lookup)
         if user is None:
+            # Get all public data
             qs = qs.is_public()
         else:
+            # Get all public + private data that is created by a user
             qs2 = qs.filter(user=user).filter(lookup)
             qs = (qs | qs2).distinct()
         return qs

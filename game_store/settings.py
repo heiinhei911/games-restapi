@@ -86,12 +86,12 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'game_store.urls'
 CORS_URLS_REGEX = r"^/api/.*$"
 CORS_ALLOWED_ORIGINS = [
-    "https://gamestoreapi.azurewebsites.net",
-    "https://www.gamestoreapi.azurewebsites.net"
+    "https://games-restapi.onrender.com",
+    "https://games-restapi.onrender.com"
 ]
 CSRF_TRUSTED_ORIGINS = [
-    "https://gamestoreapi.azurewebsites.net",
-    "https://www.gamestoreapi.azurewebsites.net"
+    "https://games-restapi.onrender.com",
+    "https://games-restapi.onrender.com"
 ]
 if DEBUG:
     CORS_ALLOWED_ORIGINS = [
