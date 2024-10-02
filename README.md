@@ -2,7 +2,7 @@
 
 A CRUD REST API containing a collection of video games with authentication built in.
 
-Site link: [https://gamestoreapi.azurewebsites.net](https://gamestoreapi.azurewebsites.net)
+Site link: [https://games-restapi.onrender.com/](https://games-restapi.onrender.com/)
 
 Django account with staff + 'admin' status for demo purposes:\
 _Username: demo_\
